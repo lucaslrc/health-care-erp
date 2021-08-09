@@ -1,9 +1,11 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace HealthCareERP.Entities
 {
-    public abstract class Storage
+    public class Storage
     {
+        [Key]
         public long ID { get; set; }
         
         public string LoteID { get; set; }
