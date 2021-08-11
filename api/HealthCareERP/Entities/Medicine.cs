@@ -1,7 +1,10 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace HealthCareERP.Entities
 {
-    public abstract class Medicine
+    public class Medicine
     {
+        [Key]
         public long ID { get; set; }
 
         public string LoteID { get; set; }
