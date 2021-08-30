@@ -8,6 +8,8 @@ namespace HealthCareERP.Entities
 
         public string Substancia { get; set; }
 
+        public int Amount { get; set; }
+
         public string Cnpj { get; set; }
 
         public string Laboratorio { get; set; }
