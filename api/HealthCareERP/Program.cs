@@ -1,3 +1,8 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using HealthCareERP.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
@@ -7,7 +12,9 @@ namespace HealthCareERP
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            var obj = new InitService();
+            obj.MigrateAnvisaSheet();
+            // CreateHostBuilder(args).Build().Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
