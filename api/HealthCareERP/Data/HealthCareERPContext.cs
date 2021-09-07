@@ -1,5 +1,6 @@
 using HealthCareERP.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace HealthCareERP.Data
 {
@@ -9,9 +10,11 @@ namespace HealthCareERP.Data
 
         public DbSet<Medicine> Medicines { get; set; }
 
+        private readonly IConfiguration _configuration;
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("DefaultConnection");
+            optionsBuilder.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
         }
     }
 }

@@ -23,6 +23,7 @@ namespace HealthCareERP.Services
                     if (!VerifyDataBaseExists())
                     {
                         ApplyMigration();
+                        MigrateAnvisaSheet();
                     }
                 }
                 catch
@@ -30,6 +31,7 @@ namespace HealthCareERP.Services
                     throw new Exception("The DataBase operation has fail, verify.");
                 }
             }
+            Console.WriteLine("Failed to connect DB Server");
         }
 
         public void ApplyMigration()
@@ -90,7 +92,7 @@ namespace HealthCareERP.Services
 
                             // Gets or sets a value indicating whether to use a row from the 
                             // data as column names.
-                            UseHeaderRow = false,
+                            UseHeaderRow = true,
 
                             // Gets or sets a callback to determine which row is the header row. 
                             // Only called when UseHeaderRow = true.
@@ -114,20 +116,29 @@ namespace HealthCareERP.Services
                         }
                     });
 
-                    // var dataSet = result;
 
-                    // DataTable dt = dataSet.Tables[0];
-
-                    var table = result.Tables[0];
-                    Console.WriteLine(table.Columns.Count);
-
-                    for (int i = 0; i < result.Tables[0].Rows.Count; i++)
+                    for (int r = 0; r < result.Tables[0].Rows.Count; r++)
                     {
-                        Console.WriteLine(result.Tables[0].Rows[i][0]);
-                    }
+                        for (int c = 0; c < result.Tables[0].Columns.Count; c++)
+                        {
+                            switch (result.Tables[0].Rows[r][c])
+                            {
+                                case "SUBSTÂNCIA":
+                                    for (int i = r + 1; i < result.Tables[0].Rows.Count - r; i++)
+                                    {
+                                        Console.WriteLine(result.Tables[0].Rows[i][c]);
+                                    }
+                                break;
 
-                    
-                    // The result of each spreadsheet is in result.Tables
+                                case "CNPJ":
+                                    for (int i = r + 1; i < result.Tables[0].Rows.Count - r; i++)
+                                    {
+                                        Console.WriteLine(result.Tables[0].Rows[i][c]);
+                                    }
+                                break;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -140,7 +151,7 @@ namespace HealthCareERP.Services
 
         public bool VerifyDataBaseServer()
         {
-            return DbContext.Database.CanConnectAsync().IsCompletedSuccessfully ? true : false;
+            return DbContext.Database.CanConnectAsync().Result;
         }
     }
 }

@@ -17,15 +17,15 @@ namespace HealthCareERP.Entities
 
         public string Laboratorio { get; set; }
 
-        public long CodigoGgrem { get; set; }
+        public string CodigoGgrem { get; set; }
 
-        public long Registro { get; set; }
+        public string Registro { get; set; }
 
-        public long Ean1 { get; set; }
+        public string Ean1 { get; set; }
 
-        public long Ean2 { get; set; }
+        public string Ean2 { get; set; }
 
-        public long Ean3 { get; set; }
+        public string Ean3 { get; set; }
 
         public string Produto { get; set; }
 
@@ -37,61 +37,61 @@ namespace HealthCareERP.Entities
 
         public string RegimePreco { get; set; }
 
-        public double PfSemImpostos { get; set; }
+        public string PfSemImpostos { get; set; }
 
         // PF 0%
-        public double Pf0 { get; set; }
+        public string Pf0 { get; set; }
 
         // PF 12%
-        public double Pf12 { get; set; }
+        public string Pf12 { get; set; }
 
         // PF 17%
-        public double Pf17 { get; set; }
+        public string Pf17 { get; set; }
 
         // PF 17% ALC
-        public double Pf17Alc { get; set; }
+        public string Pf17Alc { get; set; }
 
         // PF 17,5%
-        public double Pf175 { get; set; }
+        public string Pf175 { get; set; }
 
         // PF 17,5% ALC
-        public double Pf175Alc { get; set; }
+        public string Pf175Alc { get; set; }
 
         // PF 18%
-        public double Pf18 { get; set; }
+        public string Pf18 { get; set; }
 
         // PF 18% ALC
-        public double Pf18Alc { get; set; }
+        public string Pf18Alc { get; set; }
 
         // PF 20%
-        public double Pf20 { get; set; }
+        public string Pf20 { get; set; }
         
         // PMC 0%
-        public double Pmc0 { get; set; }
+        public string Pmc0 { get; set; }
 
         // PMC 12%
-        public double Pmc12 { get; set; }
+        public string Pmc12 { get; set; }
 
         // PMC 17%
-        public double Pmc17 { get; set; }
+        public string Pmc17 { get; set; }
 
         // PMC 17% ALC
-        public double Pmc17Alc { get; set; }
+        public string Pmc17Alc { get; set; }
 
         // PMC 17,5%
-        public double Pmc175 { get; set; }
+        public string Pmc175 { get; set; }
 
         // PMC 17,5% ALC
-        public double Pmc175Alc { get; set; }
+        public string Pmc175Alc { get; set; }
 
         // PMC 18%
-        public double Pmc18 { get; set; }
+        public string Pmc18 { get; set; }
 
         // PMC 18% ALC
-        public double Pmc18Alc { get; set; }
+        public string Pmc18Alc { get; set; }
 
         // PMC 20%
-        public double Pmc20 { get; set; }
+        public string Pmc20 { get; set; }
 
         public string RestricaoHospitalar { get; set; }
         
@@ -106,7 +106,7 @@ namespace HealthCareERP.Entities
 
         public string ListaConcessaoCreditoTributario { get; set; }
 
-        public string Comercializacao2020 { get; set; }
+        public string Comercializacao2019 { get; set; }
 
         public string Tarja { get; set; }
     }
